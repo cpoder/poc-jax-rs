@@ -11,24 +11,30 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.apache.cxf.jaxrs.spring.JAXRSServerFactoryBeanDefinitionParser.SpringJAXRSServerFactoryBean;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:testContext.xml" })
-public class TestService extends AbstractJUnit4SpringContextTests {
+public class TestService {
+	@Autowired
+	private SpringJAXRSServerFactoryBean someService;
+	
+	@Before
+	public void before() {
+		someService.setAddress("http://localhost:9080/");
+		someService.create();
+	}
+
 	@Test
 	public void testGet1() {
-		SpringJAXRSServerFactoryBean sf = (SpringJAXRSServerFactoryBean)applicationContext.getBean("someService");
-		sf.setAddress("http://localhost:9080/");
-		sf.create();
-		
 		URL url = null;
 		try {
-			url = new URL("http://localhost:9080/someService/1");
+			url = new URL("http://localhost:9080/someResource/1");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

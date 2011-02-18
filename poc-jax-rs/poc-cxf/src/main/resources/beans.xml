@@ -11,7 +11,6 @@
 	<context:component-scan base-package="com.octo.rest" />
 
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
-	<import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml" />
 
 	<jaxrs:server id="someService" transportId="http://cxf.apache.org/transports/http">
 		<jaxrs:serviceBeans>

@@ -20,7 +20,7 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
 			<version>${cxf.version}</version>
-			<!-- Since we use jackson, we can get rid of all XML stuff -->
+			<!-- Since we use jackson, we can get rid of Jettison and all XML stuff -->
 			<exclusions>
 				<exclusion>
 					<groupId>org.apache.xmlbeans</groupId>
