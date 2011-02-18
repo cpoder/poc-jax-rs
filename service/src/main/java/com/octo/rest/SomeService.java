@@ -14,25 +14,26 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.stereotype.Service;
 
 @Path("/someResource")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 @Service
 public class SomeService {
 	@Resource
 	private BeanRepo beanRepo;
 
 	@GET
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<SomeBean> getSomeBeans() {
 		return beanRepo.getAll();
 	}
 	
 	@GET
+	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{index}")
 	public SomeBean getSomeBean(@PathParam("index") int index) {
 		return beanRepo.get(index);
 	}
 	
 	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
 	public void saveSomeBean(SomeBean someBean) {
 		beanRepo.save(someBean);
 	}
