@@ -1,7 +1,6 @@
 package com.octo.rest;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import java.net.URISyntaxException;
 
@@ -32,15 +31,8 @@ public class TestMockedService {
 	}
 
 	@Test
-	public void testGet1() {
-		MockHttpRequest request = null;
-		try {
-			request = MockHttpRequest.get("/someResource/1");
-		} catch (URISyntaxException e1) {
-			e1.printStackTrace();
-		}
-		assertNotNull(request);
-
+	public void testGet1() throws URISyntaxException {
+		MockHttpRequest request = MockHttpRequest.get("/someResource/1");
 		MockHttpResponse response = new MockHttpResponse();
 		dispatcher.invoke(request, response);
 

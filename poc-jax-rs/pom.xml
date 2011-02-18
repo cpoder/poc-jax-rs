@@ -20,9 +20,7 @@
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<gae.version>1.4.0</gae.version>
-		<gae.runtime>1.4.0</gae.runtime>
-		<gae.home>${settings.localRepository}/com/google/appengine/appengine-java-sdk/${gae.version}/appengine-java-sdk-${gae.version}</gae.home>
+		<gae.version>1.4.2</gae.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -57,17 +55,15 @@
 					<dependency>
 						<groupId>net.kindleit</groupId>
 						<artifactId>gae-runtime</artifactId>
-						<version>${gae.runtime}</version>
+						<version>${gae.version}</version>
 						<type>pom</type>
 					</dependency>
 				</dependencies>
 				<configuration>
 					<serverId>appengine.google.com</serverId>
-					<unpackVersion>${gae.version}</unpackVersion>
 				</configuration>
 				<executions>
 					<execution>
-						<id />
 						<phase>validate</phase>
 						<goals>
 							<goal>unpack</goal>
