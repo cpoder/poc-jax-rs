@@ -3,6 +3,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<import resource="classpath:META-INF/cxf/cxf-extension-http-jetty.xml"/> 
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/> 
 	<import resource="classpath:beans.xml" />
 </beans>

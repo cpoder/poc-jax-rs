@@ -31,21 +31,10 @@ public class TestService {
 	}
 
 	@Test
-	public void testGet1() {
-		URL url = null;
-		try {
-			url = new URL("http://localhost:9080/someResource/1");
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		assertNotNull(url);
-		String result = null;
-		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader((InputStream)url.getContent()));
-			result = br.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void testGet1() throws IOException, MalformedURLException {
+		URL url = new URL("http://localhost:9080/someResource/1");
+		BufferedReader br = new BufferedReader(new InputStreamReader((InputStream)url.getContent()));
+		String result = br.readLine();
 		assertNotNull(result);
 		
 		assertEquals(
