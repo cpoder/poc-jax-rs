@@ -10,6 +10,7 @@
 		<module>poc-cxf</module>
 		<module>poc-jersey</module>
 		<module>poc-resteasy</module>
+		<module>poc-restlet</module>
 	</modules>
 	<parent>
 		<groupId>com.octo.rest</groupId>

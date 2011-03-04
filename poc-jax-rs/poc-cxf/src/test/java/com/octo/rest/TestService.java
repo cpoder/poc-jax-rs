@@ -26,13 +26,13 @@ public class TestService {
 	
 	@Before
 	public void before() {
-		someService.setAddress("http://localhost:9080/");
+		someService.setAddress("http://localhost:9876/");
 		someService.create();
 	}
 
 	@Test
 	public void testGet1() throws IOException, MalformedURLException {
-		URL url = new URL("http://localhost:9080/someResource/1");
+		URL url = new URL("http://localhost:9876/someResource/1");
 		BufferedReader br = new BufferedReader(new InputStreamReader((InputStream)url.getContent()));
 		String result = br.readLine();
 		assertNotNull(result);
